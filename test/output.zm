@@ -45,28 +45,35 @@ record TestOutput
     int         rt15;           // reading time for starred segment 15 [ms]
 }
 
-
-// Test output table.
-TestOutput[..] test_output;
-
-
 //------------------------------------------------------------------------------
-
 
 // Appends one row of data to test output table.
 void test_output_append(TestOutput data)
 {
-    test_output.size = test_output.size + 1;
-    test_output[test_output.size-1] = data;
+    //test_output.size = test_output.size + 1;
+    //test_output[test_output.size-1] = data;
+    expdb.add_trial_data_record(namespace_name, string(data.trialnum), "Test results");
+    
+    expdb.set_trial_data_int_field("trialnum", data.trialnum, "trial number");
+    expdb.set_trial_data_int_field("id", data.id , "item id");
+    expdb.set_trial_data_string_field("type", string(data.type) , "item type");
+    expdb.set_trial_data_string_field("question", data.question, "question");
+    expdb.set_trial_data_int_field("qcorrect", data.qcorrect,
+        "question correct: 1=correct, 0=incorrect -1=n.a.");
+    expdb.set_trial_data_int_field("rt1", data.rt1, "reaction time segment 1");
+    expdb.set_trial_data_int_field("rt2", data.rt2, "reaction time segment 2");
+    expdb.set_trial_data_int_field("rt3", data.rt3, "reaction time segment 3");
+    expdb.set_trial_data_int_field("rt4", data.rt4, "reaction time segment 4");
+    expdb.set_trial_data_int_field("rt5", data.rt5, "reaction time segment 5");
+    expdb.set_trial_data_int_field("rt6", data.rt6, "reaction time segment 6");
+    expdb.set_trial_data_int_field("rt7", data.rt7, "reaction time segment 7");
+    expdb.set_trial_data_int_field("rt8", data.rt8, "reaction time segment 8");
+    expdb.set_trial_data_int_field("rt9", data.rt9, "reaction time segment 9");
+    expdb.set_trial_data_int_field("rt10", data.rt10, "reaction time segment 10");
+    expdb.set_trial_data_int_field("rt11", data.rt11, "reaction time segment 11");
+    expdb.set_trial_data_int_field("rt12", data.rt12, "reaction time segment 12");
+    expdb.set_trial_data_int_field("rt13", data.rt13, "reaction time segment 13");
+    expdb.set_trial_data_int_field("rt14", data.rt14, "reaction time segment 14");
+    expdb.set_trial_data_int_field("rt15", data.rt15, "reaction time segment 15");
 }
 
-
-// Writes test output table contents to CSV file and clears the table.
-void test_output_save()
-{
-    // Append table to CSV file (create if non-existent). The filename format
-    // is: <dbname>/<dbnum>/<expname>/<phasename>/ses<sesid>-<tblnum>.csv
-    string fn = expdb.experiment.session.create_table(namespace_name, 1);
-    test_output.append(fn, namespace_name + ": test results");
-    test_output.size = 0;
-}
