@@ -50,8 +50,6 @@ record TestOutput
 // Appends one row of data to test output table.
 void test_output_append(TestOutput data)
 {
-    //test_output.size = test_output.size + 1;
-    //test_output[test_output.size-1] = data;
     expdb.add_trial_data_record(namespace_name, string(data.trialnum), "Test results");
     
     expdb.set_trial_data_int_field("trialnum", data.trialnum, "trial number");
