@@ -25,7 +25,7 @@ HISTORY:
 
 \******************************************************************************/
 
-requires 1.17;
+requires 2.4;
 
 import std_windows1;
 import std_texts_en;
@@ -33,7 +33,6 @@ import std_entry_page1;
 import std_exit_page1;
 import std_pause_page;
 import std_blank_page;
-import response_box; // opens beexybox at experiment start
 
 import test::task;
 
@@ -42,7 +41,7 @@ Experiment experiment
 {
     on_event:entry()
     {
-        control.button_box.enable_all_buttons(CONTINUE);
+        control.enable_all_buttons(CONTINUE);
         show_test_windows();
     }
 

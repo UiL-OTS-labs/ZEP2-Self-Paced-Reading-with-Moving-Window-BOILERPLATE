@@ -187,9 +187,9 @@ Page choose_1of2_page
     //==========================================================================
 
 
-    void set_text(string txt, bool markup=false)
+    void set_text(string txt)
     {
-        layout.message.text = txt, markup;
+        layout.message.text = txt;
     }
 
 
@@ -248,9 +248,9 @@ Page choose_1of2_page
     	page_transition_delay = 0s;
 
     	// Clear first trial delay.
-	first_trial_delay = 0s;
+        first_trial_delay = 0s;
 
-        if (test_window1.show_page(this, now() + showdelay, fadedur) == 0)
+        if (!test_window1.show_page(this, now() + showdelay, fadedur))
         {
             // Page not yet shown. Let response period begin when the page 
             // is fully visible (fade-in has finished).

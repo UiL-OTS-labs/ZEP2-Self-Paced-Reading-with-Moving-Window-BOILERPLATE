@@ -83,7 +83,7 @@ Page test_page
 
                 on_event:pre_start()
                 {
-                    text = stimtext, true;  // display with markup
+                    fancy_text = stimtext;  // display with markup
                 }
             }
         }
@@ -307,7 +307,7 @@ Page test_page
 
         // Enable button-box buttons.
         control.target = this;
-        control.button_box.disable_buttons();
+        control.disable_buttons();
 
         // Button box is intended as follows:
         /********************\
@@ -315,9 +315,9 @@ Page test_page
         |                    |
         |         0          |
         \********************/
-        control.button_box.enable_button(1, CONTINUE);
-        control.button_box.enable_button(0, 1);
-        control.button_box.enable_button(2, 2);
+        control.enable_button(1, CONTINUE);
+        control.enable_button(0, 1);
+        control.enable_button(2, 2);
     }
 
 
@@ -326,7 +326,7 @@ Page test_page
     {
         test_page_overlay.cleanup();
 
-        control.button_box.disable_buttons();
+        control.disable_buttons();
         control.target = null;
     }
 
