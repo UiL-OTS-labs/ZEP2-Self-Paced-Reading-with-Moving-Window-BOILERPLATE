@@ -41,7 +41,7 @@ Experiment experiment
 {
     on_event:entry()
     {
-        control.button_box.enable_all_buttons(CONTINUE);
+        control.enable_all_buttons(CONTINUE);
         show_test_windows();
     }
 

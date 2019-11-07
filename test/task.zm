@@ -80,7 +80,7 @@ Block task
                 true);
 
             pause_page.action(this);
-            control.button_box.enable_all_buttons(CONTINUE);
+            control.enable_all_buttons(CONTINUE);
         }
     }
 
@@ -180,7 +180,7 @@ Block task
                 true);
 
             pause_page.action(this);
-            control.button_box.enable_all_buttons(CONTINUE);
+            control.enable_all_buttons(CONTINUE);
         }
     }
 
@@ -208,8 +208,8 @@ Block task
         {
             test_page.cleanup();
 
-            // Save test output table as CSV file.
-            test_output_save();
+            // Save test output table.
+            save_trial_data();
         }
 
 
