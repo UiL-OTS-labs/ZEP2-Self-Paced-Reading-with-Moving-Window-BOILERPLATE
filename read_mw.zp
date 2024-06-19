@@ -25,7 +25,7 @@ HISTORY:
 
 \******************************************************************************/
 
-requires 2.4;
+requires 2.6;
 
 import std_windows1;
 import std_texts_en;
@@ -36,6 +36,7 @@ import std_blank_page;
 
 import test::task;
 
+import io_beexybox;
 
 Experiment experiment
 {
